@@ -93,7 +93,7 @@ export function RegisterForm({ lang }: { lang: any }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
                     <label className={labelCls}>ФИО {!optional && <span className="text-red-400">*</span>}</label>
-                    <input name={`${prefix}Name`} type="text" required={!optional} className={inputCls} placeholder="Иванов Иван Иванович" />
+                    <input name={`${prefix}Name`} type="text" required={!optional} className={inputCls} placeholder="Раиль Чибиряк" />
                 </div>
                 <div>
                     <label className={labelCls}>Школа {!optional && <span className="text-red-400">*</span>}</label>
@@ -164,7 +164,7 @@ export function RegisterForm({ lang }: { lang: any }) {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                         <div>
                             <label className={labelCls}>ФИО <span className="text-red-400">*</span></label>
-                            <input name="leaderName" type="text" required className={inputCls} placeholder="Иванов Иван Иванович" />
+                            <input name="leaderName" type="text" required className={inputCls} placeholder="Рамазан Каповицир" />
                         </div>
                         <div>
                             <label className={labelCls}>Email <span className="text-red-400">*</span></label>

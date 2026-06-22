@@ -132,7 +132,7 @@ export function ParentConsentForm({ lang }: { lang: any }) {
                             type="text"
                             required
                             className={inputCls}
-                            placeholder="Иванова Мария Петровна"
+                            placeholder="Давид Ли Дюхамбаевич"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
