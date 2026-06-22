@@ -5,10 +5,8 @@ import { defineConfig } from "astro/config";
 import simpleStackForm from "simple-stack-form";
 import simpleScope from "vite-plugin-simple-scope";
 import sentry from "@sentry/astro";
-
 import sitemap from "@astrojs/sitemap";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://www.NChB.kz/",
   output: "server",
@@ -23,12 +21,18 @@ export default defineConfig({
       kz: "ru"
     }
   },
-  integrations: [simpleStackForm(), tailwind(), react(), sentry({
-    dsn: "https://edecbdb6342aef6e9e00142c9cf27d43@o4506783322669056.ingest.sentry.io/4506783324700672",
-    sourceMapsUploadOptions: {
-      project: "javascript-astro",
-      authToken: process.env.SENTRY_AUTH_TOKEN
-    }
-  }), sitemap()],
+  integrations: [
+    simpleStackForm(), 
+    tailwind(), 
+    react(), 
+    sentry({
+      dsn: "https://edecbdb6342aef6e9e00142c9cf27d43@o4506783322669056.ingest.sentry.io/4506783324700672",
+      sourceMapsUploadOptions: {
+        project: "javascript-astro",
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+      }
+    }), 
+    sitemap()
+  ],
   adapter: vercel()
 });
