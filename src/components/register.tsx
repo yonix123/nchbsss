@@ -20,7 +20,7 @@ export function RegisterForm({ lang }: { lang: any }) {
 
     if (isSubmitted) {
         return (
-            <div className="max-w-3xl mx-auto p-8 bg-amber-50 border border-amber-200 rounded-2xl text-neutral-800 space-y-4">
+            <div className="max-w-3xl mx-auto p-8 bg-amber-50 border border-amber-200 rounded-2xl text-neutral-800 space-y-4 relative z-20">
                 {lang === 'kz' ? (
                     <>
                         <h3 className="text-xl font-semibold text-amber-800">Команда тіркелді, бірақ бұл әлі бәрі емес!</h3>
@@ -118,7 +118,7 @@ export function RegisterForm({ lang }: { lang: any }) {
     );
 
     return (
-        <form onSubmit={handleFormSubmit} className="max-w-3xl mx-auto space-y-8 text-neutral-800">
+        <form onSubmit={handleFormSubmit} className="max-w-3xl mx-auto space-y-8 text-neutral-800 bg-white relative z-20">
 
             <div className="space-y-4">
                 <p className={sectionTitle}>Основная информация</p>

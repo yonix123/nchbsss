@@ -92,7 +92,7 @@ export function ParentConsentForm({ lang }: { lang: any }) {
     const labelCls = "block text-xs font-medium text-neutral-500 mb-1.5 uppercase tracking-wide";
 
     return (
-        <div className="max-w-xl mx-auto text-neutral-800 space-y-6">
+        <div className="max-w-xl mx-auto text-neutral-800 space-y-6 bg-white relative z-20">
 
             {statusMessage && (
                 <div className={`p-4 rounded-xl text-sm font-medium border ${
