@@ -9,102 +9,147 @@ export function RegisterForm({ lang }: { lang: any }) {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const teamData = Object.fromEntries(formData.entries());
-        
         console.log("Данные команды сохранены в Neon DB:", teamData);
-        
         setIsSubmitted(true);
     };
 
-    const parentFormUrl = lang === 'kz' ? '/kz/parent-consent' : lang === 'en' ? '/en/parent-consent' : '/parent-consent';
+    const parentFormUrl =
+        lang === 'kz' ? '/kz/parent-consent'
+        : lang === 'en' ? '/en/parent-consent'
+        : '/parent-consent';
 
     if (isSubmitted) {
         return (
-            <div className="max-w-3xl mx-auto p-8 bg-amber-50 border-2 border-amber-300 rounded-xl shadow-md text-neutral-800 space-y-4 animate-fade-in">
+            <div className="max-w-3xl mx-auto p-8 bg-amber-50 border border-amber-200 rounded-2xl text-neutral-800 space-y-4">
                 {lang === 'kz' ? (
                     <>
-                        <h3 className="text-2xl font-bold text-amber-800">⚠️ Команда тіркелді, бірақ бұл әлі бәрі емес!</h3>
-                        <p className="text-base font-medium">
-                            Тіркеуді толық аяқтау үшін **әрбір қатысушының ата-анасы немесе заңды өкілі** AutoProctor жүйесін пайдалануға міндетті түрде келісім беруі керек.
+                        <h3 className="text-xl font-semibold text-amber-800">Команда тіркелді, бірақ бұл әлі бәрі емес!</h3>
+                        <p className="text-sm text-neutral-700">
+                            Тіркеуді толық аяқтау үшін әрбір қатысушының ата-анасы немесе заңды өкілі AutoProctor жүйесін пайдалануға міндетті түрде келісім беруі керек.
                         </p>
-                        <p className="text-sm text-neutral-600">
+                        <p className="text-sm text-neutral-500">
                             Ата-анаңызға мына сілтемені жіберіңіз және олар пішінде сіздің телефон нөміріңізді немесе email-ыңызды көрсетуі керек екенін ескертіңіз:
                         </p>
-                        <div className="pt-2">
-                            <a href={parentFormUrl} className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg shadow transition-colors text-center w-full sm:w-auto">
-                                Ата-ана келісімінің сілтемесі ➔
-                            </a>
-                        </div>
+                        <a href={parentFormUrl} className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 px-5 rounded-lg transition-colors text-sm">
+                            Ата-ана келісімінің сілтемесі →
+                        </a>
                     </>
                 ) : lang === 'en' ? (
                     <>
-                        <h3 className="text-2xl font-bold text-amber-800">⚠️ Team registered, but action is required!</h3>
-                        <p className="text-base font-medium">
-                            To fully complete your registration, **the parent or legal representative of each participant** MUST submit a separate consent form for AutoProctor.
+                        <h3 className="text-xl font-semibold text-amber-800">Team registered — one more step!</h3>
+                        <p className="text-sm text-neutral-700">
+                            To fully complete registration, the parent or legal representative of each participant must submit a separate consent form for AutoProctor.
                         </p>
-                        <p className="text-sm text-neutral-600">
-                            Please send this link to your parents and remind them to enter YOUR phone number or email so the system can link your profiles:
+                        <p className="text-sm text-neutral-500">
+                            Send this link to your parents and remind them to enter your phone number or email so we can link the records:
                         </p>
-                        <div className="pt-2">
-                            <a href={parentFormUrl} className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg shadow transition-colors text-center w-full sm:w-auto">
-                                Parent Consent Form Link ➔
-                            </a>
-                        </div>
+                        <a href={parentFormUrl} className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 px-5 rounded-lg transition-colors text-sm">
+                            Parent Consent Form →
+                        </a>
                     </>
                 ) : (
                     <>
-                        <h3 className="text-2xl font-bold text-amber-800">⚠️ Команда зарегистрирована, но это ещё не всё!</h3>
-                        <p className="text-base font-medium">
-                            Чтобы полностью завершить регистрацию, **родитель или законный представитель каждого участника** ОБЯЗАТЕЛЬНО должен пройти регистрацию в отдельной форме и дать согласие на AutoProctor.
+                        <h3 className="text-xl font-semibold text-amber-800">Команда зарегистрирована — осталось одно действие!</h3>
+                        <p className="text-sm text-neutral-700">
+                            Чтобы завершить регистрацию, родитель или законный представитель каждого участника должен заполнить отдельную форму согласия на AutoProctor.
                         </p>
-                        <p className="text-sm text-neutral-600">
-                            Перешлите эту ссылку своим родителям прямо сейчас и напомните им указать в форме ИМЕННО ВАШ номер телефона или email, чтобы база данных смогла связать ваши анкеты:
+                        <p className="text-sm text-neutral-500">
+                            Перешлите ссылку ниже родителям и напомните указать ваш номер телефона или email — так мы свяжем анкеты в базе:
                         </p>
-                        <div className="pt-2">
-                            <a href={parentFormUrl} className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg shadow transition-colors text-center w-full sm:w-auto">
-                                Перейти к форме родительского согласия ➔
-                            </a>
-                        </div>
+                        <a href={parentFormUrl} className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 px-5 rounded-lg transition-colors text-sm">
+                            Форма родительского согласия →
+                        </a>
                     </>
                 )}
             </div>
         );
     }
 
+    const inputCls = "w-full h-11 border border-neutral-200 rounded-lg px-3 text-sm bg-white text-neutral-900 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-neutral-400";
+    const labelCls = "block text-xs font-medium text-neutral-500 mb-1.5 uppercase tracking-wide";
+    const sectionTitle = "text-xs font-semibold text-neutral-400 uppercase tracking-widest mb-4 pb-2 border-b border-neutral-100";
+
+    const MemberBlock = ({
+        title,
+        badge,
+        prefix,
+        optional = false,
+        extra,
+    }: {
+        title: string;
+        badge?: string;
+        prefix: string;
+        optional?: boolean;
+        extra?: React.ReactNode;
+    }) => (
+        <div className="border border-neutral-100 rounded-xl p-5 space-y-4">
+            <div className="flex items-center gap-2">
+                <span className="text-sm font-semibold text-neutral-800">{title}</span>
+                {badge && (
+                    <span className="text-xs bg-neutral-100 text-neutral-500 rounded-full px-2.5 py-0.5 font-medium">{badge}</span>
+                )}
+                {extra}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                    <label className={labelCls}>ФИО {!optional && <span className="text-red-400">*</span>}</label>
+                    <input name={`${prefix}Name`} type="text" required={!optional} className={inputCls} placeholder="Иванов Иван Иванович" />
+                </div>
+                <div>
+                    <label className={labelCls}>Школа {!optional && <span className="text-red-400">*</span>}</label>
+                    <input name={`${prefix}School`} type="text" required={!optional} className={inputCls} placeholder="Название школы" />
+                </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div>
+                    <label className={labelCls}>Класс {!optional && <span className="text-red-400">*</span>}</label>
+                    <input name={`${prefix}Grade`} type="text" required={!optional} className={inputCls} placeholder="11" />
+                </div>
+                <div>
+                    <label className={labelCls}>Email {!optional && <span className="text-red-400">*</span>}</label>
+                    <input name={`${prefix}Email`} type="email" required={!optional} className={inputCls} placeholder="email@example.com" />
+                </div>
+                <div>
+                    <label className={labelCls}>Телефон {!optional && <span className="text-red-400">*</span>}</label>
+                    <input name={`${prefix}Phone`} type="text" required={!optional} className={inputCls} placeholder="+7 (700) 000-00-00" />
+                </div>
+            </div>
+        </div>
+    );
+
     return (
-        <form onSubmit={handleFormSubmit} className="space-y-8 max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md border border-neutral-100 text-neutral-800">
-            
+        <form onSubmit={handleFormSubmit} className="max-w-3xl mx-auto space-y-8 text-neutral-800">
+
             <div className="space-y-4">
-                <h3 className="text-lg font-bold text-primary-900 border-b pb-1">Основная информация о команде</h3>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <p className={sectionTitle}>Основная информация</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
-                        <label className="block text-sm font-semibold mb-1">Название команды *</label>
-                        <input name="teamName" type="text" required className="w-full border p-2 rounded-lg" />
+                        <label className={labelCls}>Название команды <span className="text-red-400">*</span></label>
+                        <input name="teamName" type="text" required className={inputCls} placeholder="Введите название" />
                     </div>
                     <div>
-                        <label className="block text-sm font-semibold mb-1">Лига *</label>
-                        <select name="league" className="w-full border p-2 rounded-lg bg-white">
+                        <label className={labelCls}>Лига <span className="text-red-400">*</span></label>
+                        <select name="league" className={inputCls}>
                             <option value="junior">Юниоры (Junior)</option>
                             <option value="senior">Сениоры (Senior)</option>
                         </select>
                     </div>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
-                        <label className="block text-sm font-semibold mb-1">Язык участия *</label>
-                        <select name="language" className="w-full border p-2 rounded-lg bg-white">
+                        <label className={labelCls}>Язык участия <span className="text-red-400">*</span></label>
+                        <select name="language" className={inputCls}>
                             <option value="ru">Русский</option>
                             <option value="kz">Казахский</option>
                         </select>
                     </div>
                     <div>
-                        <label className="block text-sm font-semibold mb-1">Наличие руководителя *</label>
-                        <select 
-                            name="hasLeader" 
-                            value={hasLeader} 
-                            onChange={(e) => setHasLeader(e.target.value)} 
-                            className="w-full border p-2 rounded-lg bg-white"
+                        <label className={labelCls}>Наличие руководителя <span className="text-red-400">*</span></label>
+                        <select
+                            name="hasLeader"
+                            value={hasLeader}
+                            onChange={(e) => setHasLeader(e.target.value)}
+                            className={inputCls}
                         >
                             <option value="yes">Да</option>
                             <option value="no">Нет</option>
@@ -114,164 +159,70 @@ export function RegisterForm({ lang }: { lang: any }) {
             </div>
 
             {hasLeader === 'yes' && (
-                <div className="space-y-4 p-4 bg-neutral-50 rounded-xl border border-neutral-200">
-                    <h3 className="text-md font-bold text-neutral-800">Данные руководителя команды</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-neutral-50 border border-neutral-100 rounded-xl p-5 space-y-4">
+                    <p className={sectionTitle}>Руководитель команды</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                         <div>
-                            <label className="block text-xs font-semibold mb-1">ФИО Руководителя *</label>
-                            <input name="leaderName" type="text" required={hasLeader === 'yes'} className="w-full border p-2 rounded-lg bg-white" />
+                            <label className={labelCls}>ФИО <span className="text-red-400">*</span></label>
+                            <input name="leaderName" type="text" required className={inputCls} placeholder="Иванов Иван Иванович" />
                         </div>
                         <div>
-                            <label className="block text-xs font-semibold mb-1">Email руководителя *</label>
-                            <input name="leaderEmail" type="email" required={hasLeader === 'yes'} className="w-full border p-2 rounded-lg bg-white" />
+                            <label className={labelCls}>Email <span className="text-red-400">*</span></label>
+                            <input name="leaderEmail" type="email" required className={inputCls} placeholder="email@example.com" />
                         </div>
                         <div>
-                            <label className="block text-xs font-semibold mb-1">Telephone руководителя *</label>
-                            <input name="leaderPhone" type="text" required={hasLeader === 'yes'} className="w-full border p-2 rounded-lg bg-white" />
+                            <label className={labelCls}>Телефон <span className="text-red-400">*</span></label>
+                            <input name="leaderPhone" type="text" required className={inputCls} placeholder="+7 (700) 000-00-00" />
                         </div>
                     </div>
                 </div>
             )}
 
-            <div className="space-y-4">
-                <h3 className="text-lg font-bold text-primary-900 border-b pb-1">Капитан команды</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">ФИО Капитана *</label>
-                        <input name="captainName" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">Школа *</label>
-                        <input name="captainSchool" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label className="block text-xs font-semibold mb-1">Класс *</label>
-                        <input name="captainGrade" type="text" required className="w-full border p-2 rounded-lg" placeholder="Например: 11" />
-                    </div>
-                    <div>
-                        <label className="block text-xs font-semibold mb-1">Email *</label>
-                        <input name="captainEmail" type="email" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                    <div>
-                        <label className="block text-xs font-semibold mb-1">Телефон *</label>
-                        <input name="captainPhone" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                </div>
-            </div>
+            <div className="space-y-3">
+                <p className={sectionTitle}>Участники</p>
 
-            <div className="space-y-4">
-                <h3 className="text-lg font-bold text-primary-900 border-b pb-1">Участник 2</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">ФИО Участника 2 *</label>
-                        <input name="member1Name" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">Школа Участника 2 *</label>
-                        <input name="member1School" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label className="block text-xs font-semibold mb-1">Класс *</label>
-                        <input name="member1Grade" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                    <div>
-                        <label className="block text-xs font-semibold mb-1">Email *</label>
-                        <input name="member1Email" type="email" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                    <div>
-                        <label className="block text-xs font-semibold mb-1">Телефон *</label>
-                        <input name="member1Phone" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                </div>
-            </div>
+                <MemberBlock title="Капитан команды" badge="Участник 1" prefix="captain" />
+                <MemberBlock title="Участник 2" badge="Обязательно" prefix="member1" />
+                <MemberBlock title="Участник 3" badge="Обязательно" prefix="member2" />
 
-            <div className="space-y-4">
-                <h3 className="text-lg font-bold text-primary-900 border-b pb-1">Участник 3</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">ФИО Участника 3 *</label>
-                        <input name="member2Name" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-semibold mb-1">Школа Участника 3 *</label>
-                        <input name="member2School" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label className="block text-xs font-semibold mb-1">Класс *</label>
-                        <input name="member2Grade" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                    <div>
-                        <label className="block text-xs font-semibold mb-1">Email *</label>
-                        <input name="member2Email" type="email" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                    <div>
-                        <label className="block text-xs font-semibold mb-1">Телефон *</label>
-                        <input name="member2Phone" type="text" required className="w-full border p-2 rounded-lg" />
-                    </div>
-                </div>
-            </div>
-
-            {!showMember4 ? (
-                <button 
-                    type="button" 
-                    onClick={() => setShowMember4(true)}
-                    className="text-primary-700 font-semibold hover:underline flex items-center gap-1"
-                >
-                    + Добавить участника 4
-                </button>
-            ) : (
-                <div className="space-y-4 p-4 bg-neutral-50 rounded-xl border border-neutral-200 relative">
-                    <button 
-                        type="button" 
-                        onClick={() => setShowMember4(false)} 
-                        className="absolute top-2 right-4 text-sm text-red-500 hover:underline"
+                {!showMember4 ? (
+                    <button
+                        type="button"
+                        onClick={() => setShowMember4(true)}
+                        className="w-full border border-dashed border-neutral-200 rounded-xl py-3 text-sm text-neutral-400 hover:border-neutral-300 hover:text-neutral-600 transition-colors flex items-center justify-center gap-1.5"
                     >
-                        Удалить
+                        <span className="text-lg leading-none">+</span> Добавить участника 4
                     </button>
-                    <h3 className="text-lg font-bold text-neutral-800">Участник 4 (необязательно)</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label className="block text-sm font-semibold mb-1">ФИО Участника 4</label>
-                            <input name="member3Name" type="text" className="w-full border p-2 rounded-lg bg-white" />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-semibold mb-1">Школа Участника 4</label>
-                            <input name="member3School" type="text" className="w-full border p-2 rounded-lg bg-white" />
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                            <label className="block text-xs font-semibold mb-1">Класс</label>
-                            <input name="member3Grade" type="text" className="w-full border p-2 rounded-lg bg-white" />
-                        </div>
-                        <div>
-                            <label className="block text-xs font-semibold mb-1">Email</label>
-                            <input name="member3Email" type="email" className="w-full border p-2 rounded-lg bg-white" />
-                        </div>
-                        <div>
-                            <label className="block text-xs font-semibold mb-1">Телефон</label>
-                            <input name="member3Phone" type="text" className="w-full border p-2 rounded-lg bg-white" />
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            <div className="pt-4 border-t">
-                <label className="flex items-start gap-2 cursor-pointer">
-                    <input type="checkbox" required className="mt-1" />
-                    <span className="text-xs text-neutral-600">
-                        Заполняя форму, члены команды подтверждают, что ознакомлены с основным регламентом научных боев. *
-                    </span>
-                </label>
+                ) : (
+                    <MemberBlock
+                        title="Участник 4"
+                        badge="Необязательно"
+                        prefix="member3"
+                        optional
+                        extra={
+                            <button
+                                type="button"
+                                onClick={() => setShowMember4(false)}
+                                className="ml-auto text-xs text-red-400 hover:text-red-600 transition-colors"
+                            >
+                                Убрать
+                            </button>
+                        }
+                    />
+                )}
             </div>
 
-            <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg font-bold transition-colors">
+            <label className="flex items-start gap-3 cursor-pointer p-4 bg-neutral-50 rounded-xl border border-neutral-100">
+                <input type="checkbox" required className="mt-0.5 w-4 h-4 accent-blue-600 flex-shrink-0" />
+                <span className="text-xs text-neutral-500 leading-relaxed">
+                    Заполняя форму, члены команды подтверждают, что ознакомлены с основным регламентом научных боёв. <span className="text-red-400">*</span>
+                </span>
+            </label>
+
+            <button
+                type="submit"
+                className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-semibold transition-colors"
+            >
                 Зарегистрировать команду
             </button>
         </form>
