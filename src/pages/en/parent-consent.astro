@@ -1,7 +1,7 @@
 ---
 import Layout from "~/components/layout.astro";
 import { getLangFromUrl, useTranslations } from "~/utils/i18n";
-import { ParentConsentForm } from "~/components/parent-form";
+import { ParentConsentForm } from "~/components/parent-form"; 
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations("apply", lang);
@@ -11,5 +11,5 @@ const t = useTranslations("apply", lang);
     {t("parentSection")} <svg>...</svg>
   </div>
 
-  <ParentForm client:load {lang} />
+  <ParentConsentForm client:load {lang} />
 </Layout>
