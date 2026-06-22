@@ -1,0 +1,113 @@
+---
+import Layout from "~/components/layout.astro";
+import { sponsors24, sponsors25 } from "~/lib/sponsors";
+import { getLangFromUrl, useTranslations } from "~/utils/i18n";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations("sponsors", lang);
+---
+
+<Layout title={t("title")} description={t("description")}>
+  <div
+    class="col-span-full bg-primary-900 p-3 lg:p-6 text-3xl lg:text-8xl font-bold rounded-xl lg:rounded-3xl relative overflow-clip my-5 lg:my-20"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1431 157"
+      fill="none"
+      class="absolute inset-0 h-full lg:h-auto"
+    >
+      <path
+        d="M693.47 152.008L-45.5 15.5M693.47 152.008L230.5 -67.5M693.47 152.008L546.001 -33.9992M693.47 152.008L808.001 -33.9992M693.47 152.008L1084.5 -67.5M693.47 152.008L1461.5 15.5M693.47 152.008L1470.5 152.008M693.47 152.008L-134.001 139.5"
+        stroke="#036280"
+        stroke-width="64"
+        class=""></path>
+    </svg>
+    <h1 class="relative text-white text-center">{t("heading")}</h1>
+  </div>
+  <div class="col-span-full flex justify-center">
+    <h1 class="text-black text-5xl text-bold m-auto w-full text-center my-10">2025</h1>
+  </div>
+  <div
+    class="grid md:grid-cols-4 grid-cols-2 col-span-full gap-y-5 gap-x-3 md:gap-y-6 md:gap-x-16"
+  >
+    {
+      sponsors25
+        .sort((a, b) => a.title.length - b.title.length)
+        .map((sponsor25) => (
+          <a
+            class="md:text-xl  hover:text-blue-500 duration-200 flex flex-col items-center justify-center"
+            href={sponsor25.url}
+          >
+            <div class="w-60 h-60 flex items-center justify-center mb-3">
+              <img src={sponsor25.name} class="w-full h-full object-contain"/>
+            </div>
+            <p class="text-center">{sponsor25.title}</p>
+            {/* <span class="text-sm text-gray-500">{sponsor25.description}</span> */}
+          </a>
+        ))
+    }
+  </div>
+  <div class="col-span-full flex justify-center">
+    <h1 class="text-black text-5xl text-bold m-auto w-full text-center my-10">2024</h1>
+  </div>
+  <div
+    class="grid md:grid-cols-4 grid-cols-2 col-span-full gap-y-5 gap-x-3 md:gap-y-6 md:gap-x-16"
+  >
+    {
+      sponsors24
+        .sort((a, b) => a.title.length - b.title.length)
+        .map((sponsor24) => (
+          <a
+            class="md:text-xl  hover:text-blue-500 duration-200 flex flex-col items-center justify-center"
+            href={sponsor24.url}
+          >
+            <div class="w-60 h-60 flex items-center justify-center mb-3">
+              <img src={sponsor24.name} class="w-full h-full object-contain"/>
+            </div>
+            <p class="text-center">{sponsor24.title}</p>
+            {/* <span class="text-sm text-gray-500">{sponsor24.description}</span> */}
+          </a>
+        ))
+    }
+  </div>
+  <!-- <h1 class="text-neutral-300 text-5xl mb-2 m-auto text-center my-10">2023</h1>
+  <div
+    class="grid md:grid-cols-4 grid-cols-2 col-span-full gap-y-5 gap-x-3 md:gap-y-6 md:gap-x-16"
+  >
+    {
+      sponsors23
+        .sort((a, b) => a.title.length - b.title.length)
+        .map((sponsor23) => (
+          <a
+            class="md:text-xl  hover:text-blue-500 duration-200 flex flex-col items-center justify-center"
+            href={sponsor23.url}
+          >
+            <div class="w-60 h-60 flex items-center justify-center mb-3">
+              <img src={sponsor23.name} class="w-full h-full object-contain"/>
+            </div>
+            <p class="text-center">{sponsor23.title}</p>
+            <span class="text-sm text-gray-500">{sponsor23.description}</span>
+          </a>
+        ))
+    }
+  </div> -->
+  <div class="mb-32"></div>
+</Layout>
+
+<script>
+  // import { gsap } from "gsap";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/all";
+
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray(".member div").forEach((member) => {
+    gsap.from(member as any, {
+      scrollTrigger: {
+        trigger: member as any,
+        toggleActions: "restart none none none",
+      },
+      y: "100%",
+      ease: "power4.out",
+    });
+  });
+</script>

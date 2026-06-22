@@ -1,0 +1,220 @@
+---
+import Layout from "~/components/layout.astro";
+import { cn } from "~/utils/cn";
+import { getLangFromUrl, useTranslations } from "~/utils/i18n";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations("topics", lang);
+---
+
+<Layout
+  title={String(t("title"))}
+  grid={false}
+  description={String(t("description"))}
+>
+  <div class="col-span-full pt-6">
+    <h1 class="text-black-300 text-3xl mb-3">{t("title")}</h1>
+    <p class="text-neutral-700 leading-relaxed mb-12">
+      {t("description")}
+    </p>
+
+    <h1 class="text-4xl mb-2 bold-text">{t("junior")}</h1>
+    <p class="text-neutral-700 text-2xl mb-4">
+      {t("junior_desc")}
+    </p>
+
+    <h3 class="text-2xl font-bold mb-4">{t("general_chemistry")}</h3>
+<table class={cn("hidden lg:grid grid-cols-1 gap-2 pb-6 border-2 border-gray-300 rounded-lg overflow-hidden")}>
+  <thead>
+    <tr class="uppercase text-neutral-300 grid grid-cols-4 gap-5 place-items-start p-4 font-bold">
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="flex flex-col gap-5">
+    <tr class="grid grid-cols-2 gap-5 p-4">
+      <td>
+        {((t("junior_general_col_1") as unknown) as string[]).map((item) => (
+          <Fragment>
+            • {item}<br />
+          </Fragment>
+        ))}
+      </td>
+      <td>
+        {((t("junior_general_col_2") as unknown) as string[]).map((item) => (
+          <Fragment>
+            • {item}<br />
+          </Fragment>
+        ))}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="text-2xl font-bold mb-4 mt-8">{t("inorg_phys_analytical")}</h3>
+<table class="hidden lg:grid grid-cols-1 gap-2 pb-6 border-2 border-gray-200 rounded-lg overflow-hidden">
+  <thead>
+    <tr class="uppercase text-neutral-300 grid grid-cols-3 gap-5 place-items-start p-4 font-bold">
+      <th>{t("inorganic")}</th>
+      <th>{t("physical")}</th>
+      <th>{t("analytical")}</th>
+    </tr>
+  </thead>
+  <tbody class="flex flex-col gap-5">
+    <tr class="grid grid-cols-3 gap-5 p-4">
+      <td>
+        {((t("junior_inorg") as unknown) as string[]).map((item) => (
+          <Fragment>
+            • {item}<br />
+          </Fragment>
+        ))}
+      </td>
+      <td>
+        {((t("junior_phys") as unknown) as string[]).map((item) => (
+          <Fragment>
+            • {item}<br />
+          </Fragment>
+        ))}
+      </td>
+      <td>
+        {((t("junior_anal") as unknown) as string[]).map((item) => (
+          <Fragment>
+            • {item}<br />
+          </Fragment>
+        ))}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 class="text-2xl font-bold mb-4 mt-8">{t("math_toolkit")}</h3>
+  <table class="hidden lg:grid grid-cols-1 gap-2 pb-6 border-2 border-gray-300 rounded-lg overflow-hidden mb-10">
+    <thead>
+      <tr class="uppercase text-neutral-300 grid grid-cols-1 gap-5 place-items-start p-4 font-bold">
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="flex flex-col gap-5">
+      <tr class="grid grid-cols-2 gap-5 p-4">
+        <td>
+          {((t("junior_math_col_1") as unknown) as string[]).map((item) => (
+            <Fragment>
+              • {item}<br />
+            </Fragment>
+          ))}
+        </td>
+        <td>
+          {((t("junior_math_col_2") as unknown) as string[]).map((item) => (
+            <Fragment>
+              • {item}<br />
+            </Fragment>
+          ))}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<!-- <h3 class="text-2xl font-bold mb-4 mt-8">Математический аппарат</h3>
+<table class={cn("hidden lg:grid grid-cols-1 gap-2 pb-6 border-2 border-gray-300 rounded-lg overflow-hidden")}>
+  <thead>
+    <tr class="uppercase text-neutral-300 grid grid-cols-2 gap-5 place-items-start p-4 font-bold">
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="flex flex-col gap-5">
+    <tr class="grid grid-cols-2 gap-5 p-4">
+      <td>
+        • Прямые вычисления и пропорции<br />
+        • Стехиометрия<br />
+        • Квадратные уравнения<br />
+        • Теорема Пифагора<br />
+        • Построение и интерпретация графической формы представления данных
+      </td>
+      <td>
+        • Сюжетные логические задачи (нахождение соответствия между множествами)<br />
+        • Системы из двух переменных<br />
+        • Простейшие вычисления логарифмов, степенных и тригонометрических функций<br />
+        • Простейшие представления о теории вероятности
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+
+
+    <h1 class="text-4xl mb-2 bold-text my-10">{t("senior")}</h1>
+    <p class="text-neutral-700 text-2xl mb-4">{t("senior_desc")}</p>
+  <h3 class="text-2xl font-bold mb-4">{t("general_chemistry")}</h3>
+  <table class="hidden lg:grid grid-cols-1 gap-2 pb-6 border-2 border-gray-300 rounded-lg overflow-hidden">
+    <thead>
+      <tr class="uppercase text-neutral-300 grid grid-cols-4 gap-5 place-items-start p-4 font-bold">
+        
+      </tr>
+    </thead>
+    <tbody class="flex flex-col gap-5">
+      <tr class="grid grid-cols-4 gap-5 p-4">
+        <td>
+          {((t("senior_general") as unknown) as string[]).map((item) => (
+            <Fragment>
+              • {item}<br />
+            </Fragment>
+          ))}
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="text-2xl font-bold mb-4 mt-8">{t("inorg_phys_analytical")}</h3>
+  <table class="hidden lg:grid grid-cols-1 gap-2 pb-6 border-2 border-gray-200 rounded-lg overflow-hidden">
+    <thead>
+      <tr class="uppercase text-neutral-300 grid grid-cols-3 gap-5 place-items-start p-4 font-bold">
+        <th>{t("inorganic")}</th>
+        <th>{t("physical")}</th>
+        <th>{t("analytical")}</th>
+      </tr>
+    </thead>
+    <tbody class="flex flex-col gap-5">
+      <tr class="grid grid-cols-3 gap-5 p-4">
+        <td>
+          {((t("senior_inorg") as unknown) as string[]).map((item) => (
+            <Fragment>
+              • {item}<br />
+            </Fragment>
+          ))}
+        </td>
+        <td>
+          {((t("senior_phys") as unknown) as string[]).map((item) => (
+            <Fragment>
+              • {item}<br />
+            </Fragment>
+          ))}
+        </td>
+        <td>
+          {((t("senior_anal") as unknown) as string[]).map((item) => (
+            <Fragment>
+              • {item}<br />
+            </Fragment>
+          ))}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="text-2xl font-bold mb-4 mt-8">{t("math_toolkit")}</h3>
+  <table class="hidden lg:grid grid-cols-1 gap-2 pb-6 border-2 border-gray-300 rounded-lg overflow-hidden mb-10">
+    <thead>
+      <tr class="uppercase text-neutral-300 grid grid-cols-1 gap-5 place-items-start p-4 font-bold">
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="flex flex-col gap-5">
+      <tr class="grid grid-cols-1 gap-5 p-4">
+        <td>
+          {((t("senior_math") as unknown) as string[]).map((item) => (
+            <Fragment>
+              • {item}<br />
+            </Fragment>
+          ))}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</Layout>

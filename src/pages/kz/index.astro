@@ -1,0 +1,476 @@
+---
+export const prerender = true;
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "~/components/layout.astro";
+import { getLangFromUrl, useTranslations } from "~/utils/i18n";
+import { sponsors24 } from "~/lib/sponsors"
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations("home", lang);
+---
+
+<!-- Preload critical resources for better performance -->
+<link rel="preload" as="image" href="/photos/1.webp" />
+<link rel="preload" as="image" href="/org_NChB.png" />
+
+<Layout title={t("seo.title")} description={t("seo.description")}>
+
+  <div
+    class="col-span-full md:-mx-10 -mx-4 border-y bg-white border-neutral-300 py-8 px-4 md:px-10 -z-10"
+    data-speed="1.1"
+  >
+    <h1
+      class="font-bold text-3xl md:text-8xl text-primary-500 text-animation overflow-hidden"
+    >
+      <span class="sticky uppercase">{t("collision.minds")}</span>
+    </h1>
+    <h2 class="md:text-5xl text-primary-500 text-animation overflow-hidden">
+      <span class="sticky">{t("participate.battle")}</span>
+    </h2>
+    <div
+      class="h-72 md:h-96 bg-primary-500 rounded-3xl my-4 lg:my-8 overflow-clip relative"
+      id="canvas-container"
+    >
+       {
+         // [t("box-1"), t("box-2"), t("box-3"), t("box-4")].map((box) => (
+         [t("box-2"), t("box-3"), t("box-4"), t("box-5")].map((box) => (
+        <div class="p-3 md:p-6 text-3xl md:text-7xl bg-primary-700 rounded-xl md:rounded-2xl absolute select-none draggable z-10">
+           <span class="text-white whitespace-nowrap">{box}</span>
+        </div>
+        ))
+      }
+
+      <svg
+        viewBox="0 0 1432 428"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="absolute lg:inset-0 lg:h-auto h-full"
+      >
+        <path
+           d="M12 -48C864.5 860 497.5 -393 1524 537.5"
+           class="md:stroke-[256px] stroke-[128px]"
+          stroke="#1C8EB8"></path>
+      </svg>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="flex gap-6 col-span-2 lg:text-base text-sm flex-wrap">
+        <a
+          class="bg-primary-500 text-white px-3 py-1.5 rounded-lg mb-auto"
+          href={getRelativeLocaleUrl(lang, "apply")}>{t("register.now")}</a
+        >
+        <a
+          class="px-3 py-1.5 rounded-lg border border-neutral-300 mb-auto"
+          href="/results">{t("results")}</a
+        >
+        <a
+          class="px-3 py-1.5 rounded-lg border border-neutral-300 mb-auto"
+          href="/Регламент NChB 2025.pdf" target="_blank">{t("regulations")}</a
+        >
+       </div>
+      <p class="text-neutral-500 text-lg leading-relaxed col-span-2">
+        {t("join.competition.description")}
+      </p>
+    </div>
+  </div>
+  <!-- <div
+    class="col-span-full grid-cols-5 md:grid-cols-7 grid place-items-center mt-8 mb-20 gap-5"
+  >
+    {
+      sponsors.map((item) => (
+        <div class="grid place-items-center">
+          <a href={item.url} target="_blank" rel="noopener noreferrer">
+            <img src={`/partners/${item.name}`} alt={item.name} class="logo" />
+          </a>
+        </div>
+      ))
+    }
+  </div> -->
+  <h3 class="col-span-4 uppercase md:text-xl row-span-3">
+    ■ {t("about.competition")}
+  </h3>
+  <p
+    class="col-span-full md:col-span-8 text-2xl md:text-4xl mb-24"
+    data-speed="1.1"
+  >
+    {t("about.competition.description")}
+    <br />
+    <br />
+    {t("about.competition.fights")}
+  </p>
+
+  <h4
+    class="md:col-span-4 col-span-2 text-neutral-500 md:text-3xl row-span-1"
+    data-speed="1.05"
+  >
+    {t("league.older")}
+  </h4>
+  <p
+    class="md:col-span-4 col-span-2 md:text-3xl mb-32 row-span-1"
+    data-speed="1.05"
+  >
+    {t("league.older.description")}
+    <br />
+  </p>
+  <h4
+    class="md:col-span-4 col-span-2 text-neutral-500 md:text-3xl row-span-1 mb-32"
+    data-speed="1.05"
+  >
+    {t("league.younger")}
+  </h4>
+  <p
+    class="md:col-span-4 col-span-2 md:text-3xl row-span-1 mb-32"
+    data-speed="1.05"
+  >
+    {t("league.younger.description")}
+  </p>
+  <div
+    class="md:h-screen col-span-full bg-primary-900 md:-mx-10 -mx-4 gap-5 grid-cols-subgrid grid px-4 md:px-10 overflow-clip relative text-xl text-white md:py-20 py-10 pb-20 md:pb-32"
+  >
+    <svg
+      id="triangle"
+      viewBox="0 0 864 871"
+      class="absolute h-4/5 top-1/2 -translate-y-1/2 -translate-x-1/3"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M832.911 1.63943C850.67 -3.45477 867.284 12.586 862.816 30.5129L657.885 852.793C653.417 870.719 631.218 877.087 617.927 864.255L8.27746 275.639C-5.01376 262.807 0.570965 240.398 18.33 235.304L832.911 1.63943Z"
+        fill="#036280"></path>
+    </svg>
+    <h3
+      class="bottom-5 left-4 md:left-10 text-3xl md:text-9xl font-bold uppercase whitespace-nowrap absolute z-10 text-white/20"
+    >
+      {t("participation.stages")}
+    </h3>
+
+    <div
+      class="absolute inset-y-0 inset-x-4 md:inset-x-10 grid grid-cols-4 md:grid-cols-6"
+    >
+      <div class="cell border-x border-primary-700 duration-300"></div>
+      <div class="cell border-r border-primary-700 duration-300 bg-white/20">
+      </div>
+      <div class="cell border-r border-primary-700 duration-300"></div>
+      <div class="cell border-r border-primary-700 duration-300"></div>
+      <div
+        class="cell border-r border-primary-700 duration-300 md:block hidden"
+      >
+      </div>
+      <div
+        class="cell border-r border-primary-700 duration-300 md:block hidden"
+      >
+      </div>
+    </div>
+    <div
+      class="md:justify-self-end md:col-span-1 col-span-4 md:col-start-7 row-span-1 rounded-full border-2 leading-6 h-8 w-8 text-white/20 grid place-items-center border-white/20 relative z-10"
+    >
+      1
+    </div>
+    <h3 class="md:col-span-3 col-span-4 relative h-min">
+      {t("participation.stages.registration")}
+    </h3>
+
+    <div
+      class="md:justify-self-end md:col-span-1 col-span-4 md:col-start-7 row-span-1 rounded-full border-2 leading-6 h-8 w-8 text-white/20 grid place-items-center border-white/20 relative z-10"
+    >
+      2
+    </div>
+    <p class="md:col-span-3 col-span-4 relative">
+      <Fragment set:html={t("participation.stages.online")} />
+    </p>
+    <div
+      class="md:justify-self-end md:col-span-1 col-span-4 md:col-start-7 row-span-1 rounded-full border-2 leading-6 h-8 w-8 text-white/20 grid place-items-center border-white/20 relative z-10"
+    >
+      3
+    </div>
+    <p class="md:col-span-3 col-span-4 relative">
+      <Fragment set:html={t("participation.stages.final")} />
+    </p>
+  </div>
+
+  <div class="grid gap-5 grid-cols-subgrid col-span-full relative">
+    <div
+      class="h-screen w-screen top-0 -inset-x-4 md:-inset-x-10 absolute -z-10 logo-skew-container grid place-items-center"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 600 510"
+        class="w-[280px] md:w-[480px] logo-skew"
+        fill="#1C8EB8"
+      >
+      <g fill="#1C8EB8" stroke="#1C8EB8">
+      <path d="M180 370 l-65 -37 -3 -86 -3 -85 73 -42 73 -42 63 32 c43 22 62 38
+      62 51 0 25 -17 24 -65 -6 -51 -31 -62 -31 -118 5 -47 29 -47 30 -47 85 0 55 0
+      56 47 85 26 17 53 30 61 30 7 0 33 -12 58 -26 42 -25 74 -27 74 -5 0 11 -121
+      82 -136 80 -5 0 -38 -18 -74 -39z"/>
+      <path d="M213 318 c-13 -6 -23 -17 -23 -25 0 -8 3 -13 8 -11 48 24 62 32 62
+      40 0 11 -20 9 -47 -4z"/>
+      <path d="M190 197 c0 -14 41 -37 63 -37 13 1 -42 50 -55 50 -5 0 -8 -6 -8 -13z"/>
+      </g>
+          <!-- fill="#1D4ED8"></path> -->
+      </svg>
+    </div>
+    <div
+      class="col-span-4 row-span-2 aspect-[2/1] text-primary-500 font-bold text-6xl uppercase flex items-end"
+      data-speed="1.1"
+    >
+      {t("tasks")}
+    </div>
+    <img
+      src="/photos/1.webp"
+      alt="NChB Chemistry Competition Photo"
+      class="md:col-span-5 col-span-2 row-span-2 aspect-square md:row-span-4 md:aspect-[3/2] md:col-start-1 object-cover w-[600px] h-[400px]"
+      data-speed="1"
+      loading="lazy"
+      width="600"
+      height="400"
+      decoding="async"
+    />
+    <p
+      class="md:col-span-4 md:aspect-[2/1] leading-relaxed text-sm row-span-6 col-span-2 aspect-[1/3] md:row-span-2"
+      data-speed="0.9"
+    >
+      {t("tasks.description")}
+    </p>
+    <img
+      src="/photos/2.webp"
+      alt="Chemistry Competition Team Work"
+      class="col-span-4 row-span-4 aspect-square lg:col-start-9 object-cover"
+      data-speed="0.9"
+      loading="lazy"
+      width="400"
+      height="400"
+      decoding="async"
+    />
+    <div class="col-span-8 row-span-2 aspect-[4/1] md:block hidden"></div>
+    <p
+      class="col-span-4 md:col-start-5 row-span-2 aspect-[2/1] md:row-span-1 md:aspect-[4/1] leading-relaxed text-sm"
+      data-speed="0.9"
+    >
+      {t("teamwork.description")}
+    </p>
+    <h3
+      class="place-content-end grid col-span-4 md:col-span-6 md:col-start-7 aspect-[2/1] md:aspect-[6/1] row-span-2 md:row-span-1 text-primary-500 font-bold text-4xl md:text-6xl uppercase"
+      data-speed="0.9"
+    >
+      {t("teamwork")}
+    </h3>
+    <img
+      src="/photos/3.webp"
+      alt="Chemistry Competition Strategy Session"
+      class="md:col-span-6 col-span-2 row-span-2 md:row-span-4 aspect-square md:aspect-[3/2] object-cover w-[600px] h-[400px]"
+      loading="lazy"
+      width="600"
+      height="400"
+      decoding="async"
+    />
+    <p
+      class="col-span-2 row-span-2 md:row-span-4 leading-relaxed text-sm aspect-square md:aspect-[1/2] flex items-end"
+      data-speed="1.1"
+    >
+      {t("strategy.description")}
+    </p>
+    <h3
+      class="col-span-4 md:col-span-6 aspect-[4/1] md:aspect-[3/1] row-span-1 md:row-span-2 text-primary-500 font-bold text-4xl md:text-6xl uppercase"
+    >
+      {t("strategy")}
+    </h3>
+  </div>
+
+  <div class="col-span-full grid gap-5 grid-cols-subgrid">
+    <h2 class="col-span-full text-3xl lg:text-5xl font-bold text-center mb-4 uppercase">
+      {t("past.tournaments")}
+    </h2>
+
+    <div class="col-span-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-sky-50 rounded-3xl p-4 md:p-8">
+      <img
+        src="/photos/4.webp"
+        alt="photo4"
+        class="w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl"
+        data-speed="1"
+      />
+      <p class="text-base md:text-xl leading-relaxed text-neutral-600">
+        {t("photo4.caption")}
+      </p>
+    </div>
+
+    <div class="col-span-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-sky-50 rounded-3xl p-4 md:p-8">
+      <p class="text-base md:text-xl leading-relaxed text-neutral-600 md:order-1">
+        {t("photo5.caption")}
+      </p>
+      <img
+        src="/photos/5.webp"
+        alt="photo5"
+        class="w-full aspect-square md:aspect-[4/3] object-cover rounded-2xl md:order-2"
+        data-speed="1"
+      />
+    </div>
+  </div>
+
+  <div
+    class="h-screen grid gap-5 grid-cols-subgrid col-span-full relative pt-10"
+  >
+    <h2
+      class="text-5xl md:text-9xl text-primary-500 uppercase leading-none text-center font-bold col-span-full"
+    >
+      {t("learn.compete.win")}
+    </h2>
+
+    <div
+      class="flex flex-col gap-8 col-span-full relative lg:absolute lg:top-2/3 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-10 justify-center"
+      data-speed="0.9"
+    >
+      <img src="/org_NChB.png" alt="National Chemical Battles Logo" width="600" height="500" decoding="async" />
+      <a
+        class="bg-primary-500 text-white px-3 py-1.5 rounded-lg mx-auto"
+        href={getRelativeLocaleUrl(lang, "apply")}>{t("participate.battle")}</a
+      >
+    </div>
+
+    <p class="leading-relaxed text-sm col-span-4 md:col-span-3">
+      {t("learn.compete.win.quote")}
+      <span class="mt-2">{t("learn.compete.win.quote.author")}</span>
+    </p>
+
+    <p class="leading-relaxed text-sm col-span-3 col-start-10 hidden md:block">
+      {t("learn.compete.win.description")}
+    </p>
+  </div>
+
+  <style>
+    .logo-skew {
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    
+    /* Optimize animations with will-change */
+    [data-speed] {
+      will-change: transform;
+    }
+    
+    #triangle {
+      will-change: transform;
+    }
+    
+    /* Reduce paint complexity */
+    .draggable {
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+  </style>
+
+  <script>
+    // import { Bodies, Engine, Mouse, MouseConstraint, Render, World, Events } from "matter-js";
+    // @ts-ignore
+    import { Bodies, Composite, Engine, MouseConstraint } from "matter-js";
+
+    let engine = Engine.create();
+    const canvas = document.getElementById("canvas-container")!;
+
+    var images = document.querySelectorAll(".logo");
+    images.forEach((image) => {
+      const img = image as HTMLImageElement;
+      var widthBase = 60;
+      var scaleFactor = 0.525;
+      var imageRatio = img.naturalWidth / img.naturalHeight;
+
+      img.width = Math.pow(imageRatio, scaleFactor) * widthBase;
+    });
+
+    const { width, height } = canvas.getBoundingClientRect();
+
+    const createBox = (elem: HTMLElement) => ({
+      w: elem.offsetWidth,
+      h: elem.offsetHeight,
+      body: Bodies.rectangle(
+        elem.offsetWidth / 2 + Math.random() * (width / 2),
+        -200,
+        elem.offsetWidth,
+        elem.offsetHeight
+      ),
+      render() {
+        const { x, y } = this.body.position;
+        elem.style.top = `${y - this.h / 2}px`;
+        elem.style.left = `${x - this.w / 2}px`;
+        elem.style.transform = `rotate(${this.body.angle}rad)`;
+      },
+    });
+
+    const mouseConstraint = MouseConstraint.create(engine, {
+      element: canvas,
+      constraint: {
+        stiffness: 0.1,
+      },
+    });
+
+    const floor = Bodies.rectangle(width / 2, height + 5, width, 10, {
+      isStatic: true,
+    });
+    const ceiling = Bodies.rectangle(width / 2, -height, width, 10, {
+      isStatic: true,
+    });
+    const rightWall = Bodies.rectangle(width + 5, height, 10, height * 2, {
+      isStatic: true,
+    });
+    const leftWall = Bodies.rectangle(-5, height, 10, height * 2, {
+      isStatic: true,
+    });
+
+    const boxes = Array.from(document.getElementsByClassName("draggable")).map(
+      (box) => createBox(box as HTMLElement)
+    );
+
+    // Add all of the bodies to the world
+    Composite.add(
+      engine.world,
+      [floor, rightWall, ceiling, leftWall, mouseConstraint].concat(
+        boxes.map((box) => box.body)
+      )
+    );
+
+    (function rerender() {
+      boxes.forEach((box) => box.render());
+      Engine.update(engine);
+      requestAnimationFrame(rerender);
+    })();
+  </script>
+
+  <script>
+    import { gsap } from "gsap";
+
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to("#triangle", {
+      scrollTrigger: { trigger: "#triangle", scrub: 2 },
+      rotate: 360,
+    });
+
+    gsap.to(".logo-skew", {
+      scrollTrigger: {
+        trigger: ".logo-skew-container",
+        start: "50% 50%",
+        end: window.innerWidth > 900 ? "+=1700px" : "+=1600px",
+        scrub: 4,
+        pin: true,
+      },
+      rotationX: 180,
+      rotationY: 180,
+      transformPerspective: 300000,
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll(".grid .cell").forEach((cell) => {
+      cell.addEventListener("mouseover", function () {
+        document.querySelectorAll(".grid .cell").forEach((c) => {
+          // c.classList.remove("backdrop-blur-xl");
+          c.classList.remove("bg-white/20");
+        });
+        // cell.classList.add("backdrop-blur-xl");
+        cell.classList.add("bg-white/20");
+      });
+    });
+  </script>
+</Layout>
