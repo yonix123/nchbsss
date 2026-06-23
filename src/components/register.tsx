@@ -260,6 +260,12 @@ export function RegisterForm({ lang }: { lang: any }) {
                 <div className="bg-neutral-50 border border-neutral-100 rounded-xl p-5 space-y-4">
                     <p className={sectionTitle}>Руководитель команды</p>
 
+                    <p className="text-xs text-neutral-600 leading-relaxed bg-white p-3 rounded-lg border border-neutral-200">
+                        Руководитель команды — лицо, ответственное за команду. Не может быть участником команды или несовершеннолетним. 
+                        Должен быть совершеннолетним с нотариально заверенной доверенностью от родителей несовершеннолетних участников. 
+                        Может быть преподавателем, сотрудником школы или любым уполномоченным взрослым. Обязателен для всех команд.
+                    </p>
+
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                         <div>
                             <label className={labelCls}>ФИО <span className="text-red-400">*</span></label>
