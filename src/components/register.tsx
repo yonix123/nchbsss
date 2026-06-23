@@ -201,7 +201,7 @@ export function RegisterForm({ lang }: { lang: any }) {
                             <option value="kz">Казахский</option>
                         </select>
                         <p className="text-xs text-neutral-400 mt-1.5 leading-relaxed">
-                            ⚠ Все участники команды должны владеть выбранным языком участия.
+                            Все участники команды должны казахским, русским или оба языками.
                         </p>
                     </div>
                     <div>
