@@ -86,7 +86,7 @@ export const parentConsents = createTable(
   {
     id: serial("id").primaryKey(),
     childIdentifier: varchar("child_identifier", { length: 256 }).notNull(),
-    parentName: varpnpm run sync:dbchar("parent_name", { length: 256 }).notNull(),
+    parentName: varchar("parent_name", { length: 256 }).notNull(),
     parentEmail: varchar("parent_email", { length: 256 }).notNull(),
     parentPhone: varchar("parent_phone", { length: 50 }).notNull(),
     isRepresentative: boolean("is_representative").notNull().default(false),
