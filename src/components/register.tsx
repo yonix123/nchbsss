@@ -275,7 +275,7 @@ export function RegisterForm({ lang }: { lang: any }) {
 
             {/* Согласие */}
             <label className="flex items-start gap-3 cursor-pointer p-4 bg-neutral-50 rounded-xl border border-neutral-100">
-                <input type="checkbox" required className="mt-0.5 w-4 h-4 accent-primary-700 flex-shrink-0" />
+                <input type="checkbox" required className="mt-0.5 w-4 h-4 accent-[#172967] flex-shrink-0" />
                 <span className="text-xs text-neutral-500 leading-relaxed">
                     Заполняя форму, члены команды подтверждают, что ознакомлены с{" "}
                     <a
@@ -292,7 +292,7 @@ export function RegisterForm({ lang }: { lang: any }) {
 
             <button
                 type="submit"
-                className="w-full h-12 bg-primary-800 hover:bg-primary-900 text-white rounded-xl text-sm font-semibold transition-colors"
+                className="w-full h-12 bg-[#172967] hover:bg-[#0f1c4a] text-white rounded-xl text-sm font-semibold transition-colors"
             >
                 Зарегистрировать команду
             </button>
