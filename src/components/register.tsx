@@ -201,6 +201,9 @@ export function RegisterForm({ lang }: { lang: any }) {
                             <option value="ru">Русский</option>
                             <option value="kz">Казахский</option>
                         </select>
+                        <p className="text-xs text-neutral-400 mt-1.5 leading-relaxed">
+                            ⚠ Все участники команды должны владеть выбранным языком участия.
+                        </p>
                     </div>
                     <div>
                         <label className={labelCls}>Наличие руководителя <span className="text-red-400">*</span></label>
