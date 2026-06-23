@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 export function RegisterForm({ lang }: { lang: any }) {
-    const [hasLeader, setHasLeader] = useState('yes');
     const [showMember4, setShowMember4] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [league, setLeague] = useState('junior');
@@ -254,22 +253,10 @@ export function RegisterForm({ lang }: { lang: any }) {
                             Все участники команды должны казахским, русским или оба языками.
                         </p>
                     </div>
-                    <div>
-                        <label className={labelCls}>Наличие руководителя <span className="text-red-400">*</span></label>
-                        <select
-                            name="hasLeader"
-                            value={hasLeader}
-                            onChange={(e) => setHasLeader(e.target.value)}
-                            className={inputCls}
-                        >
-                            <option value="yes">Да</option>
-                            <option value="no">Нет</option>
-                        </select>
-                    </div>
                 </div>
             </div>
 
-            {hasLeader === 'yes' && (
+            
                 <div className="bg-neutral-50 border border-neutral-100 rounded-xl p-5 space-y-4">
                     <p className={sectionTitle}>Руководитель команды</p>
 
@@ -329,7 +316,6 @@ export function RegisterForm({ lang }: { lang: any }) {
                         </div>
                     </div>
                 </div>
-            )}
 
             <div className="space-y-3">
                 <p className={sectionTitle}>Участники</p>
