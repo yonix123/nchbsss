@@ -23,7 +23,6 @@ export const POST: APIRoute = async ({ request, redirect }) => {
         try {
             console.log("Received registration data:", JSON.stringify(data, null, 2));
             
-            // Map form data to database schema
             const dbData = {
                 team: data.teamName,
                 league: data.league,
@@ -94,7 +93,6 @@ export const POST: APIRoute = async ({ request, redirect }) => {
             console.error("Registration error:", e);
             Sentry.captureException(e);
             
-            // Better error handling
             const errorMessage = e?.detail || e?.message || "An error occurred. Please try again.";
             
             return new Response(JSON.stringify({
@@ -106,4 +104,4 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
     return new Response(null, { status: 400 });
 
-}
+}   
