@@ -78,7 +78,10 @@ export function ParentConsentForm({ lang }: { lang: any }) {
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatusMessage(null);
-        const formData = new FormData(e.currentTarget);
+        
+        const form = e.currentTarget;
+        
+        const formData = new FormData(form);
         const data = {
             childIdentifier: formData.get('childIdentifier'),
             parentName: formData.get('parentName'),
@@ -88,17 +91,17 @@ export function ParentConsentForm({ lang }: { lang: any }) {
             poaNumber: isRepresentative ? formData.get('poaNumber') : null,
             lang,
         };
-    
+
         try {
             const response = await fetch('/api/parent-consent.json', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
-        
+
             if (response.ok) {
                 setStatusMessage({ type: 'success', text: t.success });
-                e.currentTarget.reset();
+                form.reset();
                 setIsRepresentative(false);
             } else {
                 setStatusMessage({ type: 'error', text: t.error });
