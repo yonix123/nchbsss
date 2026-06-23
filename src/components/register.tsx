@@ -9,9 +9,64 @@ export function RegisterForm({ lang }: { lang: any }) {
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-        const teamData = Object.fromEntries(formData.entries());
-        console.log("Данные команды сохранены в Neon DB:", teamData);
-        setIsSubmitted(true);
+        const data = Object.fromEntries(formData.entries());
+
+        const payload = {
+            teamName: data.teamName,
+            league: data.league,
+            language: data.language,
+            leaderName: data.leaderName,
+            leaderEmail: data.leaderEmail,
+            leaderPhone: data.leaderPhone,
+            
+            captainName: data.captainName,
+            captainSchool: data.captainSchool,
+            captainGrade: parseInt(data.captainGrade as string),
+            captainEmail: data.captainEmail,
+            captainPhone: data.captainPhone,
+            
+            member1Name: data.member1Name,
+            member1School: data.member1School,
+            member1Grade: parseInt(data.member1Grade as string),
+            member1Email: data.member1Email,
+            member1Phone: data.member1Phone,
+            
+            member2Name: data.member2Name,
+            member2School: data.member2School,
+            member2Grade: parseInt(data.member2Grade as string),
+            member2Email: data.member2Email,
+            member2Phone: data.member2Phone,
+
+            member3Name: showMember4 ? data.member3Name : null,
+            member3School: showMember4 ? data.member3School : null,
+            member3Grade: showMember4 ? parseInt(data.member3Grade as string) : null,
+            member3Email: showMember4 ? data.member3Email : null,
+            member3Phone: showMember4 ? data.member3Phone : null,
+
+            captainParent: { parentName: "", parentEmail: "", parentPhone: "", autoproctorConsent: false },
+            member1Parent: { parentName: "", parentEmail: "", parentPhone: "", autoproctorConsent: false },
+            member2Parent: { parentName: "", parentEmail: "", parentPhone: "", autoproctorConsent: false },
+            member3Parent: { parentName: "", parentEmail: "", parentPhone: "", autoproctorConsent: false },
+        };
+
+        try {
+            const response = await fetch('/api/form.json', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            if (response.ok) {
+                setIsSubmitted(true);
+            } else {
+                const errorData = await response.json();
+                console.error("Ошибка сервера:", errorData);
+                alert(errorData.message || "Произошла ошибка при отправке.");
+            }
+        } catch (err) {
+            console.error("Ошибка сети:", err);
+            alert("Не удалось подключиться к серверу. Проверьте интернет.");
+        }
     };
 
     const parentFormUrl =
