@@ -336,7 +336,7 @@ export function RegisterForm({ lang }: { lang: any }) {
                 <span className="text-xs text-neutral-500 leading-relaxed">
                     Даю согласие на сбор, обработку и хранение Персональных Данных в соответствии с Перечнем №03-08/05. С{" "}
                     <a
-                        href="https://nchb.kz/privacy"
+                        href="https://drive.google.com/drive/folders/1uezUXIM8UVWG7S7yJooWESq0c8vyUzCy"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="underline text-[#172967] hover:text-[#0f1c4a] transition-colors"

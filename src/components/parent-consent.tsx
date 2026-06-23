@@ -223,7 +223,7 @@ export function ParentConsentForm({ lang }: { lang: any }) {
                         <span className="text-xs text-neutral-500 leading-relaxed">
                             {t.policyPreLink}
                             <a 
-                                href="https://nchb.kz/privacy" 
+                                href="https://drive.google.com/drive/folders/1uezUXIM8UVWG7S7yJooWESq0c8vyUzCy" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 className="text-blue-600 underline hover:text-blue-800 transition-colors inline-block mx-0.5"
