@@ -385,7 +385,16 @@ export function RegisterForm({ lang }: { lang: any }) {
                     >
                         политикой работы с ПД Фонда и перечнем
                     </a>
-                    {" "}можно ознакомиться на сайте Фонда. <span className="text-red-400">*</span>
+                    {" "}можно ознакомиться на сайте{" "}
+                    <a
+                        href="https://bc-pf.org/personaldata"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline text-[#172967] hover:text-[#0f1c4a] transition-colors"
+                    >
+                        Фонда
+                    </a>.
+                    <span className="text-red-400"> *</span>
                 </span>
             </label>
 
